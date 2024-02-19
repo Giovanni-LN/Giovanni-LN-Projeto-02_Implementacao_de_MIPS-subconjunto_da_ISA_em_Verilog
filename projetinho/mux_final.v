@@ -1,0 +1,19 @@
+module mux_final (
+    input ALUsrc,
+    input [31:0] read_d2,
+    input [31:0] signExtended32,
+    output reg [31:0] ALUin2
+);
+
+always @* begin
+    // Seleção do valor de saída com base na entrada ALUsrc
+    if (ALUsrc == 0)
+        ALUin2 = read_d2;
+    else if (ALUsrc == 1)
+        ALUin2 = signExtended32;
+    else
+        ALUin2 = 32'hxxxx_xxxx; // Valor padrão em caso de seleção inválida
+end
+
+endmodule
+//seleciona entre read e sign

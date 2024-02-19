@@ -1,0 +1,16 @@
+module PC_controlled(
+    input wire clock,
+    input wire [31:0] nextPC_sequential, // Próximo endereço sequencial
+    input wire [31:0] nextPC_jump,       // Próximo endereço de salto incondicional
+    input wire jump_condition,           // Condição para determinar se um salto deve ocorrer
+    output reg [31:0] PC
+);
+
+    always @(posedge clock) begin
+        if (jump_condition) // Se a condição de salto estiver ativa
+            PC <= nextPC_jump; // PC recebe o próximo endereço de salto incondicional
+        else
+            PC <= nextPC_sequential; // Caso contrário, PC recebe o próximo endereço sequencial
+    end
+
+endmodule

@@ -63,4 +63,12 @@ set_global_assignment -name VERILOG_FILE projeto.v
 set_global_assignment -name VERILOG_FILE dmem.v
 set_global_assignment -name VERILOG_FILE regfile.v
 set_global_assignment -name VERILOG_FILE ula.v
+set_global_assignment -name VERILOG_FILE controladorpc.v
+set_global_assignment -name VERILOG_FILE controlejr.v
+set_global_assignment -name VERILOG_FILE mux5.v
+set_global_assignment -name VERILOG_FILE mux32.v
+set_global_assignment -name VERILOG_FILE mux2_32.v
+set_global_assignment -name VERILOG_FILE mux_final.v
+set_global_assignment -name VERILOG_FILE 32soma.v
+set_global_assignment -name VERILOG_FILE soma32.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

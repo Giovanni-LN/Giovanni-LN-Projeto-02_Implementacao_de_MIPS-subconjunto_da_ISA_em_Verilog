@@ -1,5 +1,5 @@
 Analysis & Synthesis report for projeto
-Sun Feb 18 21:22:50 2024
+Sun Feb 18 23:02:01 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -44,7 +44,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Feb 18 21:22:50 2024       ;
+; Analysis & Synthesis Status     ; Successful - Sun Feb 18 23:02:01 2024       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; projeto                                     ;
 ; Top-level Entity Name           ; projeto                                     ;
@@ -257,7 +257,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sun Feb 18 21:22:43 2024
+    Info: Processing started: Sun Feb 18 23:01:54 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off projeto -c projeto
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
@@ -271,7 +271,22 @@ Info (12021): Found 1 design units, including 1 entities, in source file dmem.v
 Info (12021): Found 1 design units, including 1 entities, in source file regfile.v
     Info (12023): Found entity 1: regfile File: C:/Users/Caio/Documents/projetinho/regfile.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file ula.v
-    Info (12023): Found entity 1: ula File: C:/Users/Caio/Documents/projetinho/ula.v Line: 1
+    Info (12023): Found entity 1: ula2 File: C:/Users/Caio/Documents/projetinho/ula.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file controladorpc.v
+    Info (12023): Found entity 1: controladorpc File: C:/Users/Caio/Documents/projetinho/controladorpc.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file controlejr.v
+    Info (12023): Found entity 1: controlejr File: C:/Users/Caio/Documents/projetinho/controlejr.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux5.v
+    Info (12023): Found entity 1: mux5 File: C:/Users/Caio/Documents/projetinho/mux5.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux32.v
+    Info (12023): Found entity 1: mux32 File: C:/Users/Caio/Documents/projetinho/mux32.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux2_32.v
+    Info (12023): Found entity 1: mux2_32 File: C:/Users/Caio/Documents/projetinho/mux2_32.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux_final.v
+    Info (12023): Found entity 1: mux_final File: C:/Users/Caio/Documents/projetinho/mux_final.v Line: 1
+Warning (12019): Can't analyze file -- file 32soma.v is missing
+Info (12021): Found 1 design units, including 1 entities, in source file soma32.v
+    Info (12023): Found entity 1: soma32 File: C:/Users/Caio/Documents/projetinho/soma32.v Line: 1
 Info (12127): Elaborating entity "projeto" for the top level hierarchy
 Info (286030): Timing-Driven Synthesis is running
 Info (144001): Generated suppressed messages file C:/Users/Caio/Documents/projetinho/output_files/projeto.map.smsg
@@ -281,9 +296,9 @@ Info (21057): Implemented 97 device resources after synthesis - the final resour
     Info (21058): Implemented 33 input pins
     Info (21059): Implemented 32 output pins
     Info (21061): Implemented 32 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 4835 megabytes
-    Info: Processing ended: Sun Feb 18 21:22:50 2024
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 4837 megabytes
+    Info: Processing ended: Sun Feb 18 23:02:01 2024
     Info: Elapsed time: 00:00:07
     Info: Total CPU time (on all processors): 00:00:06
 

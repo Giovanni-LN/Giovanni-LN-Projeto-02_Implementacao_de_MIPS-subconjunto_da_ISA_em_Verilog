@@ -1,4 +1,4 @@
-module ula (
+module ula2 (
     input [31:0] In1,   // Operando 1
     input [31:0] In2,   // Operando 2
     input [5:0] OP,   // Operação a ser realizada
