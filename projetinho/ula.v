@@ -1,7 +1,7 @@
 module ula2 (
     input [31:0] In1,   // Operando 1
     input [31:0] In2,   // Operando 2
-    input [5:0] OP,   // Operação a ser realizada
+    input [4:0] OP,   // Operação a ser realizada
     input clock,   // Sinal de clock
     output reg [31:0] Result,   // Resultado da operação
     output reg Zero_flag,   // Flag que indica que o resultado é zero
@@ -11,95 +11,95 @@ module ula2 (
     
     always @(*) begin
         case (OP)
-            6'b0000: begin   // Operação de AND
+            5'b00000: begin   // Operação de AND
                 Result = In1 & In2;
             end
-            6'b0001: begin   // Operação de OR
+            5'b00001: begin   // Operação de OR
                 Result = In1 | In2;
             end
-            6'b0010: begin   // Operação de ADD
+            5'b00010: begin   // Operação de ADD
                 Result = In1 + In2;
             end
-            6'b0011: begin   // Operação de XOR
+            5'b00011: begin   // Operação de XOR
                 Result = In1 ^ In2;
             end
-            6'b0100: begin   // Operação de NOR
+            5'b00100: begin   // Operação de NOR
                 Result = ~(In1 | In2);
             end
-            6'b0101: begin   // Operação de SLT (Set on Less Than)
+            5'b00101: begin   // Operação de SLT (Set on Less Than)
                 Result = (In1 < In2) ? 32'h1 : 32'h0;
             end
-            6'b0110: begin   // Operação de SUBTRACT
+            5'b00110: begin   // Operação de SUBTRACT
                 Result = In1 - In2;
             end
-            6'b0111: begin   // Operação de SET ON LESS THAN UNSIGNED
+            5'b00111: begin   // Operação de SET ON LESS THAN UNSIGNED
                 Result = ($unsigned(In1) < $unsigned(In2)) ? 32'h1 : 32'h0;
             end
-            6'b1000: begin   // Operação de SHIFT LEFT LOGICAL
+            5'b01000: begin   // Operação de SHIFT LEFT LOGICAL
                 Result = In1 << In2[4:0];
             end
-            6'b1001: begin   // Operação de SHIFT RIGHT LOGICAL
+            5'b01001: begin   // Operação de SHIFT RIGHT LOGICAL
                 Result = In1 >> In2[4:0];
             end
-            6'b1010: begin   // Operação de SHIFT RIGHT ARITHMETIC
+            5'b01010: begin   // Operação de SHIFT RIGHT ARITHMETIC
                 Result = $signed(In1) >>> In2[4:0];
             end
-            6'b1011: begin   // Operação de SHIFT LEFT LOGICAL VARIABLE
+            5'b01011: begin   // Operação de SHIFT LEFT LOGICAL VARIABLE
                 Result = In1 << (In2 & 5'h1F);
             end
-            6'b1100: begin   // Operação de SHIFT RIGHT LOGICAL VARIABLE
+            5'b01100: begin   // Operação de SHIFT RIGHT LOGICAL VARIABLE
                 Result = In1 >> (In2 & 5'h1F);
             end
-            6'b1101: begin   // Operação de SHIFT RIGHT ARITHMETIC VARIABLE
+            5'b01101: begin   // Operação de SHIFT RIGHT ARITHMETIC VARIABLE
                 Result = $signed(In1) >>> (In2 & 5'h1F);
             end
-            6'b1110: begin   // Operação de JUMP REGISTER (JR)
+            5'b01110: begin   // Operação de JUMP REGISTER (JR)
                 Result = In1;
             end
-            6'b1111: begin   // Operação inválida (padrão)
+            5'b01111: begin   // Operação inválida (padrão)
                 Result = 32'h0;
             end
             // I-type instructions
-            6'b10000: begin   // Operação de ADDI
+            5'b10000: begin   // Operação de ADDI
                 Result = In1 + {16'b0, In2};
             end
-            6'b10001: begin   // Operação de ANDI
+            5'b10001: begin   // Operação de ANDI
                 Result = In1 & {16'b0, In2};
             end
-            6'b10010: begin   // Operação de ORI
+            5'b10010: begin   // Operação de ORI
                 Result = In1 | {16'b0, In2};
             end
-            6'b10011: begin   // Operação de XORI
+            5'b10011: begin   // Operação de XORI
                 Result = In1 ^ {16'b0, In2};
             end
-            6'b10100: begin   // Operação de BEQ
+            5'b10100: begin   // Operação de BEQ
                 Result = In1 == In2 ? 32'h1 : 32'h0;
             end
-            6'b10101: begin   // Operação de BNE
+            5'b10101: begin   // Operação de BNE
                 Result = In1 != In2 ? 32'h1 : 32'h0;
             end
-            6'b10111: begin   // Operação de SLTI
+            5'b10111: begin   // Operação de SLTI
                 Result = (In1 < {16'b0, In2}) ? 32'h1 : 32'h0;
             end
-            6'b11000: begin   // Operação de SLTIU
+            5'b11000: begin   // Operação de SLTIU
                 Result = ($unsigned(In1) < {16'b0, In2}) ? 32'h1 : 32'h0;
             end
-            6'b11001: begin   // Operação de LUI
+            5'b11001: begin   // Operação de LUI
                 Result = {In2, 16'b0};
             end
-            6'b11010: begin   // Operação de LW
+            5'b11010: begin   // Operação de LW
                 mem_value = D_mem[In1 + {16'b0, In2}];
                 Result = In1;
             end
-            6'b11011: begin   // Operação de SW
+            5'b11011: begin   // Operação de SW
                 mem_value = In2;
                 Result = In1;
             end
             // J-type instructions
-            6'b100000: begin   // Operação de J
+            5'b100000: begin   // Operação de J
                 Result = {In1[31:28], In2, 2'b00};
             end
-            6'b100001: begin   // Operação de JAL
+            5'b100001: begin   // Operação de JAL
                 Result = In1 + 8;
                 mem_value = Result;
             end

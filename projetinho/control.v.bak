@@ -1,0 +1,41 @@
+module control(
+    input [5:0] opcode, // Entrada: código de operação da instrução
+    output reg RegDst,  // Saída: seleciona o destino do registrador
+    output reg Branch,  // Saída: indica se é uma instrução de desvio
+    output reg MemRead, // Saída: indica se a memória de dados deve ser lida
+    output reg MemtoReg, // Saída: indica se o dado para escrever no registrador vem da memória
+    output reg ALUOpMemWrite, // Saída: indica se a operação da ALU está relacionada à escrita na memória
+    output reg ALUSrc, // Saída: indica a fonte do segundo operando para a ALU
+    output reg RegWrite // Saída: indica se deve ocorrer uma escrita no registrador
+);
+
+// Caso das instruções R-Type
+always @(*) begin
+    case(opcode)
+        6'b000000: begin // add, sub, and, or, slt, sltu
+            RegDst = 1'b1;
+            Branch = 1'b0;
+            MemRead = 1'b0;
+            MemtoReg = 1'b0;
+            ALUOpMemWrite = 1'b0;
+            ALUSrc = 1'b0;
+            RegWrite = 1'b1;
+        end
+        // Adicione mais casos para outras instruções R-Type
+        
+        // Caso das instruções do tipo I
+        6'b001000, 6'b001100, 6'b001101, 6'b001010, 6'b001111: begin // addi, andi, ori, xori, lui
+            // Defina os sinais de controle apropriados para instruções do tipo I
+        end
+        // Adicione mais casos para outras instruções do tipo I
+        
+        // Caso das instruções do tipo J
+        // Adicione casos para instruções do tipo J
+        
+        default: begin // Caso padrão (instrução não suportada)
+            // Defina os sinais de controle padrão ou indique um erro, dependendo do seu design
+        end
+    endcase
+end
+
+endmodule
