@@ -1,3 +1,15 @@
+// UFRPE
+// 2023.1
+// Arquitetura e Organização de Computadores - 2ªVA
+// Alunos:
+// Caio Fontes, Giovanni Lima e Raphael Barbosa de Melo
+// Descrição do módulo:
+// realiza várias operações lógicas e aritméticas com base no valor da entrada OP.
+// As operações incluem AND, OR, ADD, XOR, NOR, SLT (Set on Less Than), SUBTRACT, SET ON LESS THAN UNSIGNED,
+// shifts lógicos e aritméticos, além de instruções I-type (ADDI, ANDI, ORI, XORI, BEQ, BNE, SLTI, SLTIU, LUI, LW, SW)
+// e instruções J-type (J). O resultado é atualizado com base nas entradas e no sinal de clock,
+// e a operação padrão é definida como zero quando OP não corresponde a nenhuma operação válida.
+
 module ula2 (
     input [31:0] In1,   // Operando 1
     input [31:0] In2,   // Operando 2

@@ -1,3 +1,13 @@
+// UFRPE
+// 2023.1
+// Arquitetura e Organização de Computadores - 2ªVA
+// Alunos:
+// Caio Fontes, Giovanni Lima e Raphael Barbosa de Melo
+// Descrição do módulo:
+// controla o próximo endereço de programa (PC) com base em uma condição de salto.
+// Se a condição estiver ativa, o próximo endereço de salto incondicional é usado;
+// caso contrário, o próximo endereço sequencial é selecionado.
+
 module controladorpc(
     input wire clock,
     input wire [31:0] nextPC_sequential, // Próximo endereço sequencial

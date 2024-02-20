@@ -1,3 +1,13 @@
+// UFRPE
+// 2023.1
+// Arquitetura e Organização de Computadores - 2ªVA
+// Alunos:
+// Caio Fontes, Giovanni Lima e Raphael Barbosa de Melo
+// Descrição do módulo:
+// responsável por controlar várias operações relacionadas a um processador ou circuito digital.
+// Ele recebe um código de operação (opcode) e, com base nesse valor, configura várias saídas,
+// como destino do registrador, operação da ALU e controle de memória.
+
 module controL(
     input [5:0] opcode, 
     input reset,
