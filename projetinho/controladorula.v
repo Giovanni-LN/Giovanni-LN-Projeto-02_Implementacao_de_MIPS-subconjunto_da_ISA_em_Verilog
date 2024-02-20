@@ -22,7 +22,7 @@ always @* begin
         0: op = func[5:3]; // Utiliza os bits 5 a 3 de func para indicar a operação
         1: op = func[5:3]; // Utiliza os bits 5 a 3 de func para indicar a operação
         2: op = func[5:3]; // Utiliza os bits 5 a 3 de func para indicar a operação
-        default: op = 5'b0000; // Valor padrão, indica uma operação não suportada
+        default: op = 5'b00000; // Valor padrão, a operação padrão será o AND
     endcase
     
     // Determinação da operação da ULA com base em func

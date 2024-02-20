@@ -14,7 +14,6 @@ module ula (
     input [31:0] In1,   // Operando 1
     input [31:0] In2,   // Operando 2
     input [4:0] OP,   // Operação a ser realizada
-    input clock,   // Sinal de clock
     output reg [31:0] Result,   // Resultado da operação
     output reg Zero_flag,   // Flag que indica que o resultado é zero
     inout [31:0] D_mem   // Memória de dados
@@ -38,34 +37,34 @@ module ula (
             5'b00100: begin   // Operação de NOR
                 Result = ~(In1 | In2);
             end
-            5'b00101: begin   // Operação de SLT (Set on Less Than)
+            5'b00101: begin   // Operação de SLT 
                 Result = (In1 < In2) ? 32'h1 : 32'h0;
             end
             5'b00110: begin   // Operação de SUBTRACT
                 Result = In1 - In2;
             end
-            5'b00111: begin   // Operação de SET ON LESS THAN UNSIGNED
+            5'b00111: begin   // Operação de SLTU
                 Result = ($unsigned(In1) < $unsigned(In2)) ? 32'h1 : 32'h0;
             end
-            5'b01000: begin   // Operação de SHIFT LEFT LOGICAL
+            5'b01000: begin   // Operação de SLL
                 Result = In1 << In2[4:0];
             end
-            5'b01001: begin   // Operação de SHIFT RIGHT LOGICAL
+            5'b01001: begin   // Operação de SRL
                 Result = In1 >> In2[4:0];
             end
-            5'b01010: begin   // Operação de SHIFT RIGHT ARITHMETIC
+            5'b01010: begin   // Operação de SRA
                 Result = $signed(In1) >>> In2[4:0];
             end
-            5'b01011: begin   // Operação de SHIFT LEFT LOGICAL VARIABLE
+            5'b01011: begin   // Operação de SLLV
                 Result = In1 << (In2 & 5'h1F);
             end
-            5'b01100: begin   // Operação de SHIFT RIGHT LOGICAL VARIABLE
+            5'b01100: begin   // Operação de SRLV
                 Result = In1 >> (In2 & 5'h1F);
             end
-            5'b01101: begin   // Operação de SHIFT RIGHT ARITHMETIC VARIABLE
+            5'b01101: begin   // Operação de SRAV
                 Result = $signed(In1) >>> (In2 & 5'h1F);
             end
-            5'b01110: begin   // Operação de JUMP REGISTER (JR)
+            5'b01110: begin   // Operação de JR
                 Result = In1;
             end
             5'b01111: begin   // Operação inválida (padrão)

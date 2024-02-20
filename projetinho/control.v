@@ -9,7 +9,7 @@
 // como destino do registrador, operação da ALU e controle de memória.
 
 module controL(
-    input [5:0] opcode, 
+    input [4:0] opcode, 
     input reset,
     output reg [1:0] reg_dst, mem_to_reg, 
     output reg jump, branch, mem_read, mem_write, alu_src, reg_write, sign_or_zero,
