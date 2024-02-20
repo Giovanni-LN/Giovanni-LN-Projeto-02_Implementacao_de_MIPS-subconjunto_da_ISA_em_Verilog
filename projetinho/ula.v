@@ -10,7 +10,7 @@
 // e instruções J-type (J). O resultado é atualizado com base nas entradas e no sinal de clock,
 // e a operação padrão é definida como zero quando OP não corresponde a nenhuma operação válida.
 
-module ula2 (
+module ula (
     input [31:0] In1,   // Operando 1
     input [31:0] In2,   // Operando 2
     input [4:0] OP,   // Operação a ser realizada
